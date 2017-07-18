@@ -1,0 +1,15 @@
+<h1>All the pizzas!</h1>
+
+<% @pizzas.each do |pizza| %>
+
+  <p>Name: <%= pizza.pretty_name %></p>
+  <p> Order: <%= pizza.quantity%> x <%= pizza.topping %></p>
+  <a href="/pizzas/<%=pizza.id %>">Show Order</a>
+  <hr/>
+
+<% end %>
+
+<!-- <form action=/pizza/>
+  <input type="textbox" name="pizza">
+  <input type="button" name="submit">
+</form> -->
