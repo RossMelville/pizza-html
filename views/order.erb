@@ -2,3 +2,6 @@
 
 <p> Name:<%= @pizzas.pretty_name %></p>
 <p> Order: <%= @pizzas.quantity%> x <%= @pizzas.topping %></p>
+<form action=/pizzas/:id>
+  <input type="button" value="Delete">
+</form>
