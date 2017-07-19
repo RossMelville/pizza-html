@@ -10,31 +10,40 @@ get '/pizzas' do
 end
 
 #new
-# post '/pizzas' do
-#   @pizzas = Pizza.save
-#   erb(:new)
-# end
+get '/pizzas/new' do
+  erb(:new)
+end
 
 #create
-# get '/pizzas/new' do
-#   @pizzas = 
+post '/pizzas' do
+  @pizza = Pizza.new(params)
+  @pizza.save
+  redirect to '/pizzas'
+end 
 
 #show
 get '/pizzas/:id' do
-@pizzas = Pizza.find(params[:id])
-erb(:order)
+  @pizza = Pizza.find(params[:id])
+  erb(:order)
 end
 
-
 #edit
+get '/pizzas/:id/edit' do
+  @pizza = Pizza.find(params[:id])
+  erb(:edit)
+end
 
 #update
+post '/pizzas/:id' do
+  @pizza = Pizza.new(params)
+  @pizza.update
+  redirect to '/pizzas'
+end
 
 #destroy
-post '/pizzas/:id' do
-  selected = params[:id]
-  @pizza1 = Pizza.find(selected)
-  # @pizza1.delete
-  erb(:delete)
+post '/pizzas/:id/delete' do
+  @pizza1 = Pizza.find(params[:id])
+  @pizza1.delete
+  redirect to '/pizzas'
 end
 
